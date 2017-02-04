@@ -1,11 +1,9 @@
 /**
  * Name: Mikiko Bazeley
- * Lab A: Generics + Extra Credit
- * SP2017
+ * Lab A: Generics (Extra Credit in different file)
+ * FA2017
  */
-
-import java.util.*;
-public class Trio<T extends Comparable<? super T>> implements Comparable<Trio <T>> {
+public class Trio<T> {
 
 	/**(10 points) instance data for the 
 	 * three items*/
@@ -108,15 +106,12 @@ public class Trio<T extends Comparable<? super T>> implements Comparable<Trio <T
 	 * false otherwise.
 
 	 */
-
 	@Override
 	public boolean equals(Object other) {
 		if(other instanceof Trio<?>) {
 			Trio<?> trioB = (Trio<?>) other;
-
-			//Flag represents the final state of truth
+//Please see attached jpg for the full logical explanation via chart form
 			boolean flag=false;
-
 			boolean matchA1B1 = (this.getItem1()).equals(trioB.getItem1());
 			boolean matchA1B2 = (this.getItem1()).equals(trioB.getItem2());
 			boolean matchA1B3 = (this.getItem1()).equals(trioB.getItem3());
@@ -128,7 +123,6 @@ public class Trio<T extends Comparable<? super T>> implements Comparable<Trio <T
 			boolean matchA3B1 = (this.getItem3()).equals(trioB.getItem1());
 			boolean matchA3B2 = (this.getItem3()).equals(trioB.getItem2());
 			boolean matchA3B3 = (this.getItem3()).equals(trioB.getItem3());
-
 			if(matchA1B1){
 				if(matchA2B2){
 					if(matchA3B3){flag=true;}
@@ -175,70 +169,10 @@ public class Trio<T extends Comparable<? super T>> implements Comparable<Trio <T
 
 			return flag;
 			
-		} else {return false;}
+		} else {
+			return false;
+		}
 	}
 
 	
-	
-	
-	
-
-	/**
-	 * public int compareTo(Object o1) {
-        if (this.Sal == ((Employee) o1).Sal)
-            return 0;
-        else if ((this.Sal) > ((Employee) o1).Sal)
-            return 1;
-        else
-            return -1;
-    }
-}
-	 * */
-	 
-	/**
-	 * Extra Credit (20 points)
-
-implement the Comparable interface
-order Trio objects by the smallest item in each Trio
-For example, (3, 1, 4) is less than (2, 6, 4) because the smallest item in the first Trio (1) is less than the smallest item in the second Trio (2)
-Hint: make a private helper method to find the smallest item in any Trio.
-Note that there are other ways you could reasonable compare Trio objects- but this is the way you are required to do it for the extra credit.
-
-	 */
-
-	@Override
-	public int compareTo(Trio<T> otherTrio){
-		//a negative integer, zero, or a positive integer as this object 
-		//is less than, equal to, or greater than the specified object.
-		this.smallest();
-		otherTrio.smallest();
-		if(this.getItem1().equals(otherTrio.getItem1())){
-			return 0;
-		}
-		else if(this.getItem1().compareTo(otherTrio.getItem1())>0){
-			return 1;
-		}
-		else{
-			return -1;
-		}
-		
-	}
-	
-	
-	
-	private void smallest(){
- //create an array
-		ArrayList<T> values= new ArrayList<T>();
-//Add the values from object being invoked on		
-	    values.add(getItem1());                
-	    values.add(getItem2());                
-	    values.add(getItem3());
-//Sort	    
-	    Collections.sort(values);
-	    this.setItem1((T)values.get(0));
-	    this.setItem2((T)values.get(1));
-	    this.setItem3((T)values.get(2));
-	    
-	    
-	}
 }
