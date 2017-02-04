@@ -45,3 +45,19 @@ I have provided a driver program that you can use to test your class. You might 
 Review the Assignment Submission Guidelines. Most importantly, make sure your code compiles- code that does not compile will receive a zero.
 
 If submitting as a group, submit one assignment only through one group member's Insight account. Put the names of all group members in Java comments at the top of each Java file.
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Assignment Feedback:
+Nice work.
+
+Consider simplifying your contains() method to make the logic easier to follow--if we have three boolean values and we want to know if ANY are true, what is the clearest way to write that?
+
+-2 equals method does not cover all possibilities of how two trios could be the same. Coding all possible options by hand is risky; consider a loop, helper method, or sorting. These trios evaluated as not equal: (item 1): A (item 2): C (item 3): B and (item 1): A (item 2): B (item 3): C.
+
+-1 when you invoke the compareTo method of the item in the Trio, you only know that it will return a number <, >, or == 0, not that it will return specifically -1 or 1.
+
+-2 invoking methods such as compareTo (and equals) should not change the object or the parameter- create a temporary copy of the object and sort the items in that copy, rather than sorting the object or the parameter.
+
++17 extra credit. Note: extra credit is listed separately in the gradebook and will be entered after all lab submissions are graded.
